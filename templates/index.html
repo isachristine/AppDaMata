@@ -3,9 +3,10 @@
 {% block content %}
     <h1>{% block title %} Seja bem-vinda Sra Francis!! {% endblock %}</h1>
     {% for insumo in insumos %}
-        <a href="#">
-            <h2>{{ insumo['nome_insumo'] }}</h2>
-            <h3>{{ insumo['beneficios'] }}</h3>
+        <a href="{{ url_for('index', insumo_id=insumo['id']) }}"></a>
+        <p></p>
+            <h3>{{ insumo['nome_insumo'] }}</h3>
+            <h6>{{ insumo['beneficios'] }}</h6>
         </a>
         <hr>
     {% endfor %}    

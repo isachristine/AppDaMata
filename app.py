@@ -1,13 +1,18 @@
-from flask import Flask, render_template
+import re
+from flask import Flask, render_template, request, url_for, flash, redirect
 import os, datetime #manipulação de datas
 import sqlite3
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.exceptions import abort
 
+
+
 def get_db_connection():
     conn = sqlite3.connect('database.db')
     conn.row_factory = sqlite3.Row
     return conn
+
+
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
 database_file = "sqlite:///{}".format(os.path.join(project_dir, "database.db"))
@@ -53,5 +58,24 @@ def get_insumo(insumo_id):
 def post(insumo_id):
     insumo = get_insumo(insumo_id)
     return render_template('insumos.html', insumo=insumo)
+
+
+
+@app.route('/addinsumo', methods=('GET', 'POST'))
+def addinsumo():
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+        if not title:
+            flash('Por favor, insira o nome do insumo que deseja cadastrar!')
+        else:
+            conn = get_db_connection()
+            conn.execute('INSERT INTO insumos (nome_insumo, beneficios) VALUES (?, ?)',
+                    (title, content))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('index'))
+
+    return render_template('addinsumo.html')
 
 
