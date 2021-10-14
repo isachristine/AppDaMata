@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import os, datetime #manipulação de datas
 import sqlite3
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import defaultload #mapeamento dos objetos para modelo relacional
+from werkzeug.exceptions import abort
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
@@ -29,11 +29,29 @@ class Insumos(db.Model):
     nome_insumo = db.Column(db.String(80), nullable=False)
     beneficios = db.Column(db.String(500), nullable=False)
 
-@app.route('/')
+@app.route('/') # TELA PRINCIPAL
 # A função index vai ser chamada quando o servidor receber uma requisição
 def index():
     conn = get_db_connection()
     Insumos = conn.execute('SELECT * FROM insumos').fetchall()
     conn.close()
-#    insumos = Insumos.query.all()
     return render_template('index.html', insumos=Insumos)
+
+
+
+def get_insumo(insumo_id):
+    conn = get_db_connection()
+    insumo = conn.execute('SELECT * FROM insumos WHERE id = ?', (insumo_id,)).fetchone()
+    conn.close()
+    if insumo is None:
+        abort(404)
+    return insumo
+
+
+
+@app.route('/<int:insumo_id>')
+def post(insumo_id):
+    insumo = get_insumo(insumo_id)
+    return render_template('insumos.html', insumo=insumo)
+
+
