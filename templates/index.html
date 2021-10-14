@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Seja bem-vinda Sra Francis!! {% endblock %}</h1>
+    {% for insumo in insumos %}
+        <a href="#">
+            <h2>{{ insumo['nome_insumo'] }}</h2>
+            <h3>{{ insumo['beneficios'] }}</h3>
+        </a>
+        <hr>
+    {% endfor %}    
+{% endblock %}
