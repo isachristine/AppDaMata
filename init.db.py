@@ -1,6 +1,6 @@
 import sqlite3
 
-connection = sqlite3.connect('database.db')
+connection = sqlite3.connect('database.db') #aquivo que armazena nosso banco de dados
 
 with open('schema.sql') as f:
     connection.executescript(f.read())

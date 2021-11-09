@@ -1,0 +1,125 @@
+.containermain {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    height: 700px;
+    margin: 0 auto;
+    background-image: url("img/1.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-color: #172e2c;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  
+  footer {
+    font-family: "Lato", sans-serif;
+    width: 800px;
+    font-size: 12px;
+    height: 50px;
+    margin: auto;
+    bottom: 0;
+    position: fixed;
+    text-align: center;
+    background-color: #8eb1a0;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  
+  .navigation-bar {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+  
+    background-color: #8eb1a0;
+    height: 70px;
+    width: 100%;
+    width: calc(50% + 583 - 366);
+    border-radius: #000;
+  }
+  
+  #menu {
+    float: right;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  a:hover {
+    text-decoration: underline;
+    color: #ade9d0;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  
+  .navigation-bar > a {
+    display: inline-block;
+    vertical-align: center;
+    margin-right: 5px;
+    max-width: 100px;
+    width: 100px;
+    height: 120px;
+    margin-top: 30px;
+  }
+  
+  .logo {
+    float: left;
+    margin-top: -10px;
+  }
+  
+  .logo {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 90px;
+    margin-top: -0px;
+    max-height: 150px;
+    max-width: 200px;
+    width: 70px;
+    height: 70px;
+  }
+  
+  .registroformulario {
+    font-family: "Lato", sans-serif;
+    font-size: 12px;
+    text-align: center;
+    color: rgb(5, 5, 5);
+    padding: 1px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 40px;
+    max-width: 525px;
+    min-height: 100px;
+    background-color: #c4e1d3;
+    border-radius: 25px;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  }
+  .conteudo {
+    display: block;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    max-width: 525px;
+    min-height: 170px;
+    position: relative;
+  }
+  .button {
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.24), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
+  }
+  .limiter {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    height: 700px;
+    margin: 0 auto;
+  }
+  .login100-more {
+    max-width: 800px;
+    height: 700px;
+  }
+  
