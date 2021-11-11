@@ -3,11 +3,11 @@
 {% block content %}
     <h1>{% block title %} Seja bem-vinda Sra Francis!! {% endblock %}</h1>
     {% for insumo in insumos %}
-        <a href="{{ url_for('insumo', insumo_id=insumo['id']) }}"></a>
+        <a href="{{ url_for('post', insumo_id=insumo['id']) }}">
+            <h2>{{ insumo['nome_insumo'] }}</h2>
+        </a>
         <!--Essa url_for é o que vai criar a URL como rota, mas não está gerando link-->
         <p></p>
-            <h3>{{ insumo['nome_insumo'] }}</h3>
-            <h6>Para acessar página do insumo, digite na URL: /{{ insumo['id'] }}</h6>
             <h6>E para editar digite na URL: /{{ insumo['id'] }}/edit</h6>
             <h6>{{ insumo['beneficios'] }}</h6>
         </a>
