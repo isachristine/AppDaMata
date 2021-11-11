@@ -79,7 +79,7 @@ def post(insumo_id):
 
 @app.route('/<int:id>/edit', methods=('GET', 'POST'))
 def edit(id):
-    insumo = get_insumo(id)
+    post = get_insumo(id)
 
     if request.method == 'POST':
         title = request.form['title']
@@ -95,7 +95,7 @@ def edit(id):
             conn.close()
             return redirect(url_for('index'))
 
-    return render_template('edit.html', insumo=insumo)
+    return render_template('edit.html', post=post)
 
 
 #@app.route('/<int:id>/delete', methods=('POST',))

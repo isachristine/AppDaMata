@@ -8,8 +8,10 @@
         </a>
         <!--Essa url_for é o que vai criar a URL como rota, mas não está gerando link-->
         <p></p>
-            <h6>E para editar digite na URL: /{{ insumo['id'] }}/edit</h6>
             <h6>{{ insumo['beneficios'] }}</h6>
+        </a>
+        <a href="{{ url_for('edit', id=insumo['id']) }}">
+            <span class="badge badge-warning">Editar</span>
         </a>
         <hr>
     {% endfor %}    

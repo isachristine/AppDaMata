@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{% block title %} Editando "{{ insumo['nome_insumo'] }}" {% endblock %}</h1>
+<h1>{% block title %} Editando "{{ post['nome_insumo'] }}" {% endblock %}</h1>
 
 <form method="post">
     <div class="form-group">
         <label for="Nome do insumo">Nome do insumo</label>
         <input type="text" name="title" placeholder="Nome do insumo"
                class="form-control"
-               value="{{ request.form['title'] }}">
+               value="{{ request.form['title'] or post['title'] }}">
         </input>
     </div>
 
     <div class="form-group">
         <label for="Benefícios">Benefícios e características</label>
         <textarea name="content" placeholder="Benefícios"
-                  class="form-control">{{ request.form['content'] }}</textarea>
+                  class="form-control">{{ request.form['content'] or post['content'] }}</textarea>
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Atualizar cadastro</button>
