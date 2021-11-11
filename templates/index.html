@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Seja bem-vinda Sra Francis!! {% endblock %}</h1>
+    <h1>{% block title %} <br><br><strong>Seja bem-vinda Sra Francis!!</strong> <br><br> {% endblock %}</h1>
     {% for insumo in insumos %}
         <a href="{{ url_for('post', insumo_id=insumo['id']) }}">
-            <h2>{{ insumo['nome_insumo'] }}</h2>
+            <h2><p> </p>{{ insumo['nome_insumo'] }}</h2>
         </a>
         <!--Essa url_for é o que vai criar a URL como rota, mas não está gerando link-->
         <p></p>
             <h6>{{ insumo['beneficios'] }}</h6>
+            <br>
         </a>
         <a href="{{ url_for('edit', id=insumo['id']) }}">
-            <span class="badge badge-warning">Editar</span>
+            <span class="btn btn-secondary">Editar<br></span>
         </a>
         <hr>
     {% endfor %}    

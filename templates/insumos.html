@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 <!--Código para exibição do conteúdo da postagem-->
 {% block content %}
-    <h2>{% block title %} {{ post['nome_insumo'] }} {% endblock %}</h2>
+    <h2>{% block title %} <br>{{ post['nome_insumo'] }} <br>{% endblock %}</h2>
     <p></p>
     <p>{{ post['beneficios'] }}</p> 
 {% endblock %}
