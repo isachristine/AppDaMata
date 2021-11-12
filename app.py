@@ -4,7 +4,6 @@ import os, datetime #manipulação de datas
 import sqlite3
 from flask_sqlalchemy import SQLAlchemy #serve para fazer o mapeamento dos objetos para o modelo relacional
 from werkzeug.exceptions import abort
-import waitress
 
 
 def get_db_connection():
@@ -28,8 +27,6 @@ database_file = "sqlite:///{}".format(os.path.join(project_dir, "database.db"))
 # esse comando diz que queremos realmente trabalhar com sqlite
 
 app = Flask('__name__')
-
-waitress.serve(app.wsgifunc, port=8041, url_scheme='https')
 
 app.config['SECRET_KEY'] = 'your secret key'
 # professor vai explicar mais pra frente sobre isso
