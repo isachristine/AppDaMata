@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} <br><br><strong>Seja bem-vinda Sra Francis!!</strong> <br><br> {% endblock %}</h1>
+    <h1>{% block title %} <br><br><strong>Seus insumos...</strong> <br><br> {% endblock %}</h1>
     {% for insumo in insumos %}
         <a href="{{ url_for('post', insumo_id=insumo['id']) }}">
             <h2><p> </p>{{ insumo['nome_insumo'] }}</h2>

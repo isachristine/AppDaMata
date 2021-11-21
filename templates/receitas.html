@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+<!--Código para exibição do conteúdo da postagem-->
+{% block content %}
+    <h2>{% block title %} <br>{{ post2['nome_receita'] }} <br>{% endblock %}</h2>
+    <p></p>
+    <p>{{ post2['ingredientes'] }}</p> 
+    <p>{{ post2['passos'] }}</p> 
+{% endblock %}

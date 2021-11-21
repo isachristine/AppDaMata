@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} <br>Editando "{{ post2['nome_receita'] }}"<br> {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Nome da Receita">Nome da Receita</label>
+        <input type="text" name="title" placeholder="Nome da Receita"
+               class="form-control"
+               value="{{ request.form['title'] or post2['title'] }}">
+        </input>
+    </div>
+
+    <div class="form-group">
+        <label for="Ingredientes">Ingredientes</label>
+        <textarea name="content1" placeholder="Ingredientes"
+                  class="form-control">{{ request.form['content1'] or post2['content1'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="Passo a Passo">Passo a Passo</label><textarea name="content2" placeholder="Passo a Passo"
+                  class="form-control">{{ request.form['content2'] or post2['content2'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Atualizar cadastro</button>
+    </div>
+</form>
+<hr>
+
+{% endblock %}

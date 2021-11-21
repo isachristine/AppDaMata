@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} <br><br><strong>Suas receitas...</strong> <br><br> {% endblock %}</h1>
+    {% for receita in receitas %}
+        <a href="{{ url_for('post2', receita_nome=receita['nome_receita']) }}">
+            <h2><p> </p>{{ receita['nome_receita'] }}</h2>
+        </a>
+        <!--Essa url_for é o que vai criar a URL como rota, mas não está gerando link-->
+        <p></p>
+            <h6>{{ receita['ingredientes'] }}</h6>
+            <br>
+            <h6>{{ receita['passos'] }}</h6>
+            <br>
+        </a>
+        <a href="{{ url_for('editreceita', receita_nome=receita['nome_receita']) }}">
+            <span class="btn btn-secondary">Editar<br></span>
+        </a>
+        <hr>
+    {% endfor %}    
+{% endblock %}

@@ -6,3 +6,13 @@ CREATE TABLE insumos (
     nome_insumo TEXT NOT NULL,
     beneficios TEXT NOT NULL
 );
+
+DROP TABLE IF EXISTS receitas;
+
+CREATE TABLE receitas (
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    nome_receita TEXT NOT NULL PRIMARY KEY,
+    ingredientes TEXT NOT NULL,
+    passos TEXT NOT NULL
+);
+
