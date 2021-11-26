@@ -42,7 +42,8 @@ app.config['SECRET_KEY'] = 'your secret key'
 # professor vai explicar mais pra frente sobre isso
 
 app.config["SQLALCHEMY_DATABSE_URI"] = database_file # definir o arquivo SQL
-db = SQLAlchemy(app) # objeto do tipo SQL Alchemy, utilizado para seguir com as consultas
+db = SQLAlchemy(app)
+db.init_app(app) # objeto do tipo SQL Alchemy, utilizado para seguir com as consultas
 
 # criação da classe com os 4 atributos definidos na tabela "insumos"
 class Insumos(db.Model):
@@ -100,7 +101,7 @@ def addinsumo():
                     (title, content))
             conn.commit()
             conn.close()
-            return redirect(url_for('index'))
+            return redirect(url_for('cadastrados'))
 
     return render_template('addinsumo.html')
 
@@ -121,7 +122,7 @@ def addreceita():
                     (title, content1, content2))
             conn.commit()
             conn.close()
-            return redirect(url_for('index_receitas'))
+            return redirect(url_for('receitas'))
 
     return render_template('addreceita.html')
  
@@ -154,7 +155,7 @@ def edit(id):
             'WHERE id = ?', (title, content, id))
             conn.commit()
             conn.close()
-            return redirect(url_for('index'))
+            return redirect(url_for('cadastrados'))
 
     return render_template('edit.html', post=post)
 
@@ -172,11 +173,11 @@ def editreceita(receita_nome):
             flash('Por favor, insira o nome da receita que deseja cadastrar!')
         else:
             conn = get_db_connection()
-            conn.execute('UPDATE insumos SET ingredientes = ?, passos = ?',
-            'WHERE nome_receita = ?', (title, content1, content2))
+            conn.execute('UPDATE receitas SET ingredientes = ?, passos = ?'
+            'WHERE nome_receita = ?', (content1, content2, title))
             conn.commit()
             conn.close()
-            return redirect(url_for('index_receitas'))
+            return redirect(url_for('receitas'))
 
     return render_template('edit_receita.html', post2=post2)
 
