@@ -41,7 +41,7 @@ app = Flask('__name__')
 app.config['SECRET_KEY'] = 'your secret key'
 # professor vai explicar mais pra frente sobre isso
 
-app.config["SQLALCHEMY_DATABSE_URI"] = database_file # definir o arquivo SQL
+app.config["SQLALCHEMY_DATABASE_URI"] = database_file # definir o arquivo SQL
 db = SQLAlchemy(app)
 db.init_app(app) # objeto do tipo SQL Alchemy, utilizado para seguir com as consultas
 
